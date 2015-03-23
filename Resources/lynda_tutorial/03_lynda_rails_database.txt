@@ -1,0 +1,106 @@
+--------------------------------------------------------
+
+CREATING THE DATABASE
+
+SHOW DATABASES;
+CREATE DATABASE db_name;
+USE db_name;
+DROP DATABASE db_name;
+
+CREATE DATABASE triplec_development;
+
+Create a user
+	 GRANT ALL PRIVILEGES ON triplec_development.*
+	TO 'udit'@'localhost'
+	IDENTIFIED BY 'anything';
+
+	SHOW GRANTS FOR 'udit'@'localhost';
+
+	unit: anything
+	triplec: triplec
+
+mysql -u triplec -p triplec_development
+
+--------------------------------------------------------
+
+CONFIGURE PROJECT
+
+In the project folder:
+	rake db:schema:dump
+
+RAKE???
+	Ruby helper program
+	"ruby make"
+
+	rake -T (show commands)
+	rake -T db (show db commands)
+
+To switch environments, do:
+
+rake db:schema:dump RAILS_ENV=development
+rake db:schema:dump RAILS_ENV=production
+	(this one won't work because we don't have a production environment set up)
+
+--------------------------------------------------------
+
+MIGRATIONS
+
+* Keeps database schema with application code
+* Executable and repeatable
+* Allows sharing schema changes (to the database)
+* Helps with versioning
+* Allows writing Ruby instead of SQL
+
+Create a migration
+	rails generate migration DoNothingYet
+	(creates a migration with timestamp)
+
+Create a model
+	rails generate model User (model name is singular, migration is plural)
+
+--------------------------------------------------------
+
+RUNNING MIGRATIONS
+
+rake db:migrate RAILS_ENV=development
+
+go to mySql
+	SHOW DATABASES;
+	SHOW FIELDS FROM users;
+
+SHOW FIELDS FROM schema_migrations;
+	schema_migrations keeps track of the database versions
+
+rake db:migrate VERSION=0
+	Like "roll back to commit 0"
+
+rake db:migrate:status
+	Like "show history"
+
+rake db:migrate VERSION=20150323225903
+	Like "roll back to this commit"
+
+--------------------------------------------------------
+
+MIGRATION METHODS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

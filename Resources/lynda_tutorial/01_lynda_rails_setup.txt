@@ -1,0 +1,121 @@
+FRAMEWORK vs LIBRARY
+
+A framework is a set of code libraries and data-structures, that provide generic functionality which can be used, overridden or further specialized.
+
+Well the main difference, is that a framework is going to do more for you than a simple code library would. It's going to provide more structure, dictate the flow control of the program, and have a lot of default behaviors built in. Libraries typically don't do anything, until you ask them to. The Rails framework is actually going to do a lot, on its own, as a default behavior.
+
+
+DRY code: "Don't repeat yourself"
+* concise, consistent, easy to maintain
+
+---------------------------------------
+
+MVC - MODEL VIEW CONTROLLER
+>> See Basic Web Architecture vs MVC model slides.
+	* MODEL
+	The data structure. Either objects or the database.
+	* VIEW
+	What the user see and interacts with. In this case, the html pages, including the css and javaScript.
+	* CONTROLLER
+	processes and responds to user events. Controls the interaction between model and view.
+
+---------------------------------------
+
+EDITING THE SHELL PREFERENCES
+
+$nano .bash_profile
+
+alias ll="ls -lahG"
+
+export PATH="/usr/local/bin:/usr/local/mysql/bin:$PATH"
+
+---------------------------------------
+
+INSTALL XCODE
+
+Xcode contains a compiler called GCC
+
+It used to be that Xcode automatically installed the developer tools.
+
+Now you have to go to Xcode > Preferences > Downloads > Command Line Tool
+
+Note: We'll need both gcc and make to compile software.
+
+---------------------------------------
+
+INSTALL RUBYGEMS
+
+A gem is Ruby application packaged. RubyGems is the package manager for those applications.
+
+gem update --system
+gem --help
+
+---------------------------------------
+
+INSTALL RAILS
+
+gem install bundler
+
+gem install rails --no-ri --no-rdoc
+(speeds up the installation, doesn't copy documentation files)
+
+gem install rails --no-ri --no-rdoc --version 4.0.0
+(if you want to specify a version)
+
+---------------------------------------
+
+MY SQL
+
+Other databases SQLlite posGress
+
+* Homebrew
+	* brew install mysql
+	* launch at start:
+	ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+
+	*load now:
+	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+
+	* just start:
+	
+
+* Set a default MySQL password
+	* mysql.server start
+
+* Install MySQL RubyGem
+
+* mysql.server	start
+		stop
+		status
+
+	mysql -u root
+	exit
+
+Create password: mysqladmin -u root password
+
+	mysql -u root -p
+	type password (I saved as the same as the computer!)
+
+Install the MySQL gem: gem install mysql2
+
+---------------------------------------
+
+WEB SERVER
+
+Mac OS 10 already ships with an Apache server! If you do system preferences > sharing > internet sharing you'll be activating it
+
+Web Servers
+
+	* Apache
+		* Passenger/mod_rails: Apache module to talk to Rails (it's the most popular)
+
+	* WEBrick: ships with Rails
+	
+---------------------------------------
+
+TEXT EDITOR
+
+Create alias for sublime though the command line
+ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
+Now if you type "subl someFile" you can open it with Sublime

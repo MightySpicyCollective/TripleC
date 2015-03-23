@@ -1,0 +1,159 @@
+CREATE A PROJECT
+
+CMS - Command Management System
+
+rails new name_of_project -d mysql
+
+--------------------------------------------------------
+
+BUNDLER
+
+Bundler is a separate gem from Rails, and can be used outside of Rails, but Rails is going to depend on it ,to manage the RubyGems that our application needs.
+
+* bundler
+	* Gemfile: specifies the dependencies
+	* Gemfile.lock: Bundler creates this, by sorting out all dependencies and sub-dependencies
+	That happens when you create the project, but you can also run it again calling "bundle install" (like npm install)
+
+--------------------------------------------------------
+
+ACCESS THE PROJECT
+
+rails server
+(default is Webrick, port 3000)
+127.0.0.1 is the same as localhost!
+
+To get rid of the "Access Denied:"
+	* config/database.yml
+	enter the password
+
+	* comment out the database under "development"
+
+--------------------------------------------------------
+
+CONTROLLER AND VIEW
+
+rails generate controller demo index
+* demo: name of controller
+* index: views (you can add more by hitting space)
+
+This will create the files:
+	app/controllers/demo_controller.rb
+		Open it and add 'layout false'
+
+	app/views/demo/ndex.html.erb
+
+Take a look into config/routes.rb
+
+Access: http://localhost:3000/demo/index
+
+--------------------------------------------------------
+
+FILE STRUCTURE
+
+	controllers/concerns
+	models/concerns
+		Shared code
+
+	environments
+		development: development stage of the project
+		production: actually launch the site
+		test:
+
+	db
+		Store code relative to managing the database, specially migrations
+
+--------------------------------------------------------
+
+SERVER REQUEST HANDLING
+
+The server is ALWAYS gonna look for static pages inside PUBLIC first.
+If you have a VIEW with the same name of a static page, the former won't be loaded.
+Example:
+	view: app/views/demo/index.html.erb
+	static html: public/demo/index.html
+
+	Rails will load the latter.
+
+--------------------------------------------------------
+
+ROUTES
+
+* Simple (match) Route
+Use the literal string, matches exactly the same address
+
+	get 'demo/index'
+
+	same as
+
+	match 'demo/index',
+		:to => 'demo#index',
+		:via => get
+
+* Default Route
+Creates a default rule
+
+	:controller/:action/:id
+
+	match ':controller(/:action(/:id))', :via => :get
+	// add this to the routes file
+
+* Root Route
+
+	root :to => 'demo#index'
+
+	or
+	
+	root 'demo#index'
+
+--------------------------------------------------------
+
+RENDERING TEMPLATES
+
+REDIRECTING ACTIONS
+
+	Take a look into the demo_controller.rb file
+
+--------------------------------------------------------
+
+VIEW TEMPLATES
+
+ERb = embedded Ruby
+	Process the template using Ruby, outputs as html
+
+<% code %>: executes the code
+<%= code %>: executes and outputs the code
+
+See the hello.html.erb file
+
+--------------------------------------------------------
+
+INSTANCE VARIABLES AND LINKS
+
+variable
+
+@instance_variable: applies to a particular instance
+Here, a controller is a class and our demo is an instance of it
+We'll create instance variables for it. The controller will pass them to the view.
+
+See
+	demo_controller.rb
+	hello.html.erb file
+	new_page.html.erb
+
+--------------------------------------------------------
+
+HTML LINKS WITH PARAMETERS
+
+See
+	hello.html.erb file (passing)
+	demo_controller.rb (saving to controller instance)
+	index.html.erb (reading it back from the controller)
+
+
+
+
+
+
+
+
