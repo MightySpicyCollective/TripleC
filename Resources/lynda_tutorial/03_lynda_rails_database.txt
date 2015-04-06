@@ -16,7 +16,7 @@ Create a user
 
 	SHOW GRANTS FOR 'udit'@'localhost';
 
-	unit: anything
+	udit: anything
 	triplec: triplec
 
 mysql -u triplec -p triplec_development
@@ -58,6 +58,8 @@ Create a migration
 Create a model
 	rails generate model User (model name is singular, migration is plural)
 
+Files are gonna be stored in db/migrate
+
 --------------------------------------------------------
 
 RUNNING MIGRATIONS
@@ -84,9 +86,22 @@ rake db:migrate VERSION=20150323225903
 
 MIGRATION METHODS
 
+rails generate migration AlterUsers
 
+	Take a look into db/migrate/...alter_users.rb
 
+	IMPORTANT: add_index to foreign keys (linked from another table) and things you'll look up for frequently (like user ids)
 
+	* start the server:
+		mysql.server start	
+		mysql -u triplec -p triplec_development
+
+	* run the migration: rake db:migrate
+
+rails generate model Project
+
+NOTES:
+	* Any changes you make to a table, either on the createTable or alterTable migration, WON'T RUN AGAIN. You need to crate a new migration if you want to add a column to a table, for instance.
 
 
 

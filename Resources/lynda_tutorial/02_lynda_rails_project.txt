@@ -8,7 +8,7 @@ rails new name_of_project -d mysql
 
 BUNDLER
 
-Bundler is a separate gem from Rails, and can be used outside of Rails, but Rails is going to depend on it ,to manage the RubyGems that our application needs.
+Bundler is a separate gem from Rails, and can be used outside of Rails, but Rails is going to depend on it,to manage the RubyGems that our application needs.
 
 * bundler
 	* Gemfile: specifies the dependencies

@@ -6,9 +6,9 @@ class CreateUsers < ActiveRecord::Migration
 			# If you don't want it:
 			# create_table :users, {:id => false} do |t|
 
-			# t.column "name", :type, options
-			# You could also do t.string "user_id", options
-			t.column "login", :string, :limit => 12
+			# You could also do
+			# t.column "login", :type, options
+			t.string "login", :limit => 12
 			t.string "password", :limit => 12
 			t.integer "role", :default => 0
 			t.boolean "status", :default => true
