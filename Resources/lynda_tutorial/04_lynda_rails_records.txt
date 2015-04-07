@@ -1,0 +1,139 @@
+
+RAILS CONSOLE
+
+rails console
+or
+rails c
+
+To load an environment different from development, do:
+	rails console production
+
+--------------------------------------------------------
+
+CREATING RECORDS
+
+A) New/save
+	Instantiate object
+	Set values
+	Save
+
+	-----------------------------
+
+	user = User.new
+	user.new_record? (true/false)
+	user.name = "Udit"
+
+or	user = User.new(:name => "Udit", :password => "anything")
+	user.save
+
+
+OR
+
+B) Create
+	Instantiate object, set values, and save
+
+	-----------------------------
+
+	user = User.create(:name => "Udit", :password => "anything")
+
+--------------------------------------------------------
+
+UPDATING RECORDS
+
+A)
+user = User.find(1) // 1 is the id
+user.name = "Shakti"
+user.save
+
+user.new_record?
+
+B)
+user = User.find(1)
+user.update_attributes(:name => "Shakti", :age => 7)
+
+--------------------------------------------------------
+
+DELETING RECORDS
+
+* Find record
+* destroy // better then 'delete'
+
+user = User.find(3)
+user.destroy
+
+--------------------------------------------------------
+
+FINDING RECORDS
+
+Primary key finder:
+
+	User.find(2) // id
+
+
+Dynamic finder (handles the error if the record doesn't exist):
+
+	User.find_by_id(2)
+	User.find_by_name('Shakti')
+	User.find_by_school('Parsons')
+
+
+Find all method (returns an array):
+
+	User.all
+
+
+First/last method:
+
+	User.first/User.last
+
+// Finding all users
+users = User.all
+
+// Printing all user logins
+users.each do |user|
+	puts user.login
+end
+
+--------------------------------------------------------
+
+QUERY METHODS: CONDITIONS
+
+Chainings:
+
+* User.where(:role => 0).order(:name) // Not sure about order, but looks like sorting
+* User.where(:role => 0).where(:last_name = "Travis")
+* User.where(:role => 0).where(:last_name = "Travis").first()
+
+Condition expression types
+
+	String
+	NEVER USE THIS
+
+	Array
+	["name = ? AND visible = true", "Shakti"]
+
+	Hash
+	{ :name => "Shakti", :visible => true }
+	This one is AWESOME, but... You can only do AND (no OR, GREATER THAN...)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

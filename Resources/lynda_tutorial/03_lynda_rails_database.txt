@@ -103,10 +103,32 @@ rails generate model Project
 NOTES:
 	* Any changes you make to a table, either on the createTable or alterTable migration, WON'T RUN AGAIN. You need to crate a new migration if you want to add a column to a table, for instance.
 
+--------------------------------------------------------
 
+ActiveRecord
 
+A class with active record implementations — capacity to access and change the database.
 
+--------------------------------------------------------
 
+REVIEW
+
+1. rails generate model SingularName
+
+	It creates a file in db/migrations like 000000000_create_users.rb
+	This file contains a class called CreateUsers, inherited from ActiveRecord
+
+2. To run the migration, just do rake db:migrate
+	
+	Another file is created in app/models, called user.rb
+
+3. To create a migration (not a model), do:
+	
+	rails generate migration SingularName
+
+4. To delete/undo any of the above, do:
+	
+	rails destroy model/migration SingularName
 
 
 

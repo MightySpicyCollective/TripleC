@@ -11,23 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406213128) do
+ActiveRecord::Schema.define(version: 20150407000555) do
 
   create_table "pictures", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
     t.string   "url",        limit: 35
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "user_id",    limit: 4
   end
 
   add_index "pictures", ["url"], name: "index_pictures_on_url", using: :btree
   add_index "pictures", ["user_id"], name: "index_pictures_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
     t.string   "name",       limit: 12
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "user_id",    limit: 4
   end
 
   add_index "projects", ["name"], name: "index_projects_on_name", using: :btree
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20150406213128) do
   add_index "schools", ["name"], name: "index_schools_on_name", using: :btree
 
   create_table "teachers", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
     t.string   "first_name", limit: 20
     t.string   "last_name",  limit: 20
     t.string   "email",      limit: 35
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "user_id",    limit: 4
   end
 
   add_index "teachers", ["user_id"], name: "index_teachers_on_user_id", using: :btree
@@ -61,12 +61,10 @@ ActiveRecord::Schema.define(version: 20150406213128) do
     t.boolean  "status",     limit: 1,  default: true
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.integer  "picture_id", limit: 4
     t.integer  "school_id",  limit: 4
   end
 
   add_index "users", ["login"], name: "index_users_on_login", using: :btree
-  add_index "users", ["picture_id"], name: "index_users_on_picture_id", using: :btree
   add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
 
 end

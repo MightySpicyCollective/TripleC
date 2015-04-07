@@ -1,0 +1,36 @@
+
+RELATIONSHIP TYPES
+
+Relational database associations
+
+	* one-to-one
+	Director <> School, for example
+
+	* one-to-many
+	Teacher > Classes
+
+	* many-to-many
+	Classes > Students
+
+In TripleC:
+
+* one-to-one
+	users > pictures
+	users > teachers
+
+* one-to-many
+	schools > users
+
+* many-to-many
+
+
+User has_one :teacher
+Teacher belongs_to :user
+
+User has_one :picture
+Picture belongs_to :user
+
+// the one with "belongs_to" should have the foreign key
+
+To link 2 records:
+
