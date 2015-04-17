@@ -34,3 +34,17 @@ Picture belongs_to :user
 
 To link 2 records:
 
+* many-to-many
+
+School has_many :users
+User belongs_to :school
+
+User has_many :projects
+Project belongs_to :user
+
+school.users
+Append:
+school.users << new_user
+school.users.delete(new_user)
+school.users.destroy(new_user)
+
