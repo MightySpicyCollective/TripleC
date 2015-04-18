@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407000555) do
+ActiveRecord::Schema.define(version: 20150417222245) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "url",        limit: 35
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20150407000555) do
 
   add_index "projects", ["name"], name: "index_projects_on_name", using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
+
+  create_table "projects_users", id: false, force: :cascade do |t|
+    t.integer "project_id", limit: 4
+    t.integer "user_id",    limit: 4
+  end
+
+  add_index "projects_users", ["project_id", "user_id"], name: "index_projects_users_on_project_id_and_user_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name",       limit: 50

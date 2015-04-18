@@ -34,13 +34,15 @@ Picture belongs_to :user
 
 To link 2 records:
 
-* many-to-many
+## One-to-many
 
 School has_many :users
 User belongs_to :school
 
 User has_many :projects
 Project belongs_to :user
+
+
 
 school.users
 Append:
@@ -50,3 +52,26 @@ school.users.destroy(new_user)	// deletes from the original table
 school.users.clear
 school.users.empty?
 school.users.size
+
+create new school, save to the database, query user, append to school
+school_manila = School.new(:name => "Manila School", :city => "Manila", :country => "Philippines")
+school_manila.save
+udit = User.find(1)
+school_manila.users << udit
+school_manila
+
+//query
+school_manila.users.where(:login => "udit")
+
+##Many-to-many 
+
+project has_and_belongs_to_many :users
+
+Join Table Naming: first_table + _ + second_table
+rails generate migration CreateProjectsUsersJoin
+
+// specify the join table
+has_and_belongs_to_many :projects, :join_table => "projects_users"
+
+// create an alias for the users. Makes more sense to call them 'collaborators' in this context:
+has_and_belongs_to_many :collaborators, :class_name => "User", :join_table => "projects_users"

@@ -69,6 +69,7 @@ rake db:migrate RAILS_ENV=development
 go to mySql
 	SHOW DATABASES;
 	SHOW FIELDS FROM users;
+	SELECT * FROM users;
 
 SHOW FIELDS FROM schema_migrations;
 	schema_migrations keeps track of the database versions
@@ -129,6 +130,8 @@ REVIEW
 4. To delete/undo any of the above, do:
 	
 	rails destroy model/migration SingularName
+
+school_manila = School.new(:name => "Manila School", :city => "Manila", :country => "Philippines")
 
 
 
