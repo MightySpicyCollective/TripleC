@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
 	has_one :picture
 	has_and_belongs_to_many :projects, :join_table => "projects_users"
 
+	scope :sorted, lambda { order("subjects.position ASC")}
 end
