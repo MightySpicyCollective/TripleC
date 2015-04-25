@@ -1,0 +1,47 @@
+
+# BASIC CRUD
+
+Start the app. cd to the folder and do
+	rails server
+
+* create
+	* new
+	* create
+
+
+* read
+	* index
+	* show
+
+* update
+	* edit
+	* update
+
+## CREATE
+
+One controller per model. Use plural names ("PagesController")
+
+Create a controller:
+
+generate controller Users index show new edit delete
+// the options are the functionalities you want on this controller
+
+Comment out the routes in routes.rb
+
+## READ
+
+Edit the UsersController
+
+	Into index, add
+
+		@users = User.sorted
+
+## SHOW
+
+Show ONE record.
+
+Create the html structure.
+
+
+
+

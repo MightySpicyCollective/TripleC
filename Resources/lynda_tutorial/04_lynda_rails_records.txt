@@ -116,6 +116,37 @@ Condition expression types
 	{ :name => "Shakti", :visible => true }
 	This one is AWESOME, but... You can only do AND (no OR, GREATER THAN...)
 
+--------------------------------------------------------
+
+NAMED SCOPES
+
+// the var "active" will return all records that have the "visible" property set to true
+// lamba = anonymous function
+scope :active, lambda { where (:active => true) }
+
+Same as:
+
+def self.active
+	where(:active => true)
+end
+
+JavaScript
+	var with_content_type = function(ctype){
+		...	
+	}
+
+Rails
+	scope :with_content_type, lambda {|ctype|
+		where(content_type => ctype)
+	}
+
+	or
+
+	def :with_content_type(ctype)
+		where(content_type => ctype)
+	end
+
+
 
 
 
