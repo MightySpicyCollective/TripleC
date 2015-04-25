@@ -1,26 +1,32 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %> 
+
  <div class="users index">
   <h2>users</h2>
 
-  <%= link_to("Add New User", '#', :class => 'action new') %>
+  <%= link_to("Add New User", {:action => 'new'}, :class => 'action new') %>
 
   <table class="listing" summary="User list">
     <tr class="header">
-      <th>&nbsp;</th>
-      <th>User</th>
       <th>Login</th>
       <th>Role</th>
       <th>Status</th>
       <th>School ID</th>
+
     </tr>
     <% @users.each do |user| %>
     <tr>
-      <td><%= user.position %></td>
-      <!-- <td><%= user.login %></td> -->
-      <!-- <td class="center"><%= user.pages.size %></td> -->
+      <td class="center"><%= user.login %></td>
+      <td class="center"><%= user.role %></td>
+      <td class="center">Active: <%= user.status ? 'Yes' : 'No' %></td> 
+      <td><%= user.school_id %></td>
       <td class="actions">
-        <%= link_to("Show", '#', :class => 'action show') %>
-        <%= link_to("Edit", '#', :class => 'action edit') %>
-        <%= link_to("Delete", '#', :class => 'action delete') %>
+        <%= link_to("Show", {:action => 'show', :id => user.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => user.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => user.id}, :class => 'action delete') %>
       </td>
     </tr>
     <% end %>

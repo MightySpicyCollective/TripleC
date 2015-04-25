@@ -1,2 +1,35 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="user edit">
+  <h2>Update User</h2>
+
+  <%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+
+    <table summary="User form fields">
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:login) %></td>
+      </tr>
+      <tr>
+        <th>Password</th>
+        <td><%= f.password_field(:password) %></td>
+      </tr>
+      <tr>
+        <th>Role</th>
+        <td>
+        	<%= f.select(:role, options_for_select([['student', 0], ['teacher', 1], ['admin', 2]])) %>
+        </td>
+      </tr>
+      <tr>
+        <th>School ID</th>
+        <td><%= f.number_field(:school_id) %></td>
+      </tr>      
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Update User") %>
+    </div>
+
+  <% end %>
+
+</div>

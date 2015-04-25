@@ -1,0 +1,21 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="picture new">
+  <h2>Create Picture</h2>
+
+  <%= form_for(:picture, :url => {:action => 'create'}) do |f| %>
+
+    <table summary="Picture form fields">
+      <tr>
+        <th>Url</th>
+        <td><%= f.text_field(:url) %></td>
+      </tr> 
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Upload Picture") %>
+    </div>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,27 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %> 
+
+ <div class="picture index">
+  <h2>picture</h2>
+
+  <%= link_to("Add New Picture", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Picture list">
+    <tr class="header">
+      <th>Url</th>
+    </tr>
+    <% @pictures.each do |picture| %>
+    <tr>
+      <td class="center"><%= picture.url %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => picture.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => picture.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => picture.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

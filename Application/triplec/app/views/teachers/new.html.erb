@@ -1,0 +1,29 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="teacher new">
+  <h2>Create Teacher</h2>
+
+  <%= form_for(:teacher, :url => {:action => 'create'}) do |f| %>
+
+    <table summary="Teacher form fields">
+      <tr>
+        <th>First Name</th>
+        <td><%= f.text_field(:first_name) %></td>
+      </tr> 
+      <tr>
+        <th>Second Name</th>
+        <td><%= f.text_field(:second_name) %></td>
+      </tr> 
+      <tr>
+        <th>Email</th>
+        <td><%= f.text_field(:email) %></td>
+      </tr> 
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Teacher") %>
+    </div>
+
+  <% end %>
+
+</div>

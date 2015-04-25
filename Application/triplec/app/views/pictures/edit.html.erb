@@ -1,0 +1,21 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="picture edit">
+  <h2>Update Picture</h2>
+
+  <%= form_for(:picture, :url => {:action => 'update', :id => @picture.id}) do |f| %>
+
+    <table summary="Picture form fields">
+      <tr>
+        <th>Url</th>
+        <td><%= f.text_field(:url) %></td>
+      </tr>   
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Update Picture") %>
+    </div>
+
+  <% end %>
+
+</div>

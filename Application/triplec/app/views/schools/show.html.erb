@@ -1,0 +1,30 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %> 
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="schools show">
+  <h2>School Subject</h2>
+
+  <table summary="School detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @school.name %></td>
+    </tr>
+    <tr>
+      <th>City</th>
+      <td><%= @school.city %></td>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <td><%= @school.country %></td>
+    </tr>
+      <th>Created</th>
+      <td><%= @school.created_at %></td>
+    </tr>
+  </table>
+
+</div>

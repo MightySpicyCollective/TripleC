@@ -1,0 +1,29 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %> 
+
+ <div class="teacher index">
+  <h2>projects</h2>
+
+  <%= link_to("Add New Teacher", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Teacher list">
+    <tr class="header">
+      <th>Name</th>
+    </tr>
+    <% @teachers.each do |teacher| %>
+    <tr>
+      <td class="center"><%= teacher.first_name %></td>
+      <td class="center"><%= teacher.last_name %></td>
+      <td class="center"><%= teacher.email %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => teacher.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => teacher.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => teacher.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

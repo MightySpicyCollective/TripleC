@@ -1,0 +1,32 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %> 
+
+ <div class="schools index">
+  <h2>schools</h2>
+
+  <%= link_to("Add New School", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="School list">
+    <tr class="header">
+      <th>Name</th>
+      <th>City</th>
+      <th>Country</th>
+
+    </tr>
+    <% @schools.each do |school| %>
+    <tr>
+      <td class="center"><%= school.name %></td>
+      <td class="center"><%= school.city %></td>
+      <td class="center"><%= school.country %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => school.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => school.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => school.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

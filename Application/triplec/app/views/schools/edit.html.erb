@@ -1,0 +1,31 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="school edit">
+  <h2>Update School</h2>
+
+  <%= form_for(:school, :url => {:action => 'update', :id => @school.id}) do |f| %>
+
+    <table summary="School form fields">
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>   
+
+      <tr>
+        <th>City</th>
+        <td><%= f.text_field(:city) %></td>
+      </tr>   
+
+      <tr>
+        <th>Country</th>
+        <td><%= f.text_field(:country) %></td>
+      </tr>   
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Update School") %>
+    </div>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,19 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %> 
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="projects show">
+  <h2>Project Subject</h2>
+
+  <table summary="Project detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @project.name %></td>
+    </tr>
+  </table>
+
+</div>
