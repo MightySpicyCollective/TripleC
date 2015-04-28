@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417222245) do
+ActiveRecord::Schema.define(version: 20150427195403) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "url",        limit: 35
@@ -62,13 +62,13 @@ ActiveRecord::Schema.define(version: 20150417222245) do
   add_index "teachers", ["user_id"], name: "index_teachers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "login",      limit: 12
-    t.string   "password",   limit: 12
-    t.integer  "role",       limit: 4,  default: 0
-    t.boolean  "status",     limit: 1,  default: true
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.integer  "school_id",  limit: 4
+    t.string   "login",           limit: 12
+    t.integer  "role",            limit: 4,   default: 0
+    t.boolean  "status",          limit: 1,   default: true
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "school_id",       limit: 4
+    t.string   "password_digest", limit: 255
   end
 
   add_index "users", ["login"], name: "index_users_on_login", using: :btree

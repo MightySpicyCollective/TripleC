@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   
-  layout false
-
+  # layout false
+  before_action :confirm_logged_in
+  
   def index
     @users = User.sorted
   end
@@ -43,6 +44,7 @@ class UsersController < ApplicationController
 
   def delete
     @user = User.find(params[:id])
+<<<<<<< HEAD
   end
 
   def destroy
@@ -51,6 +53,16 @@ class UsersController < ApplicationController
     redirect_to(:action => 'index')
   end
 
+=======
+  end
+
+  def destroy
+    user = User.find(params[:id]).destroy
+    flash[:notice] = "User '#{user.login}' destroyed successfully."
+    redirect_to(:action => 'index')
+  end
+
+>>>>>>> 1d20f15900fc6aee83554de8b89ef09b3ed1810f
   private
 
     def user_params

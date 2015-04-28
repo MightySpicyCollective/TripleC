@@ -1,6 +1,12 @@
 class PicturesController < ApplicationController
+<<<<<<< HEAD
+  # layout false
+  before_action :confirm_logged_in
+  
+=======
   layout false
 
+>>>>>>> 1d20f15900fc6aee83554de8b89ef09b3ed1810f
   def index
     @pictures = Picture.sorted
   end
