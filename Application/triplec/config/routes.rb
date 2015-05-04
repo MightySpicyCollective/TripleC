@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-  root "demo#index" 
+  # root "demo#index" 
 
   get 'user', :to => "access#index"
 
   # get 'access/login'
-=======
-
-  root "demo#index" 
->>>>>>> 1d20f15900fc6aee83554de8b89ef09b3ed1810f
 
   #default route
   match ':controller(/:action(/:id))', :via => [:get, :post]

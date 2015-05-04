@@ -7,12 +7,25 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="users show">
-  <h2>User Subject</h2>
-
+  <h2><%= @user.name %></h2>
+  <tr>
+      <!-- <th>Image</th> -->
+      <!-- <div class="image_placeholder"> -->
+        <td><%= image_tag @user.image.url.to_s %></td>
+      <!-- </div> -->
+    </tr>
   <table summary="User detail view">
     <tr>
       <th>Name</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>Login ID</th>
       <td><%= @user.login %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @user.email %></td>
     </tr>
     <tr>
       <th>Active</th>

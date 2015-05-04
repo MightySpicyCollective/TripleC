@@ -3,12 +3,17 @@
 <div class="project new">
   <h2>Create Project</h2>
 
-  <%= form_for(:project, :url => {:action => 'create'}) do |f| %>
+  <%= form_for(:project, :html => {:multipart => true}, :url => {:action => 'create'}) do |f| %>
 
     <table summary="Project form fields">
       <tr>
         <th>Name</th>
         <td><%= f.text_field(:name) %></td>
+      </tr> 
+
+      <tr>
+        <th>Code</th>
+        <td><%= f.file_field(:code) %></td>
       </tr> 
     </table>
 
