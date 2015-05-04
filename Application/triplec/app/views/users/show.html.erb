@@ -11,7 +11,7 @@
   <tr>
       <!-- <th>Image</th> -->
       <!-- <div class="image_placeholder"> -->
-        <td><%= image_tag @user.image.url.to_s %></td>
+        <td><%= image_tag @user.image_url(:thumb).to_s %></td>
       <!-- </div> -->
     </tr>
   <table summary="User detail view">
