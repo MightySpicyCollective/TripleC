@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20150502030134) do
     t.integer  "school_id",       limit: 4
     t.string   "password_digest", limit: 255
     t.string   "image",           limit: 255
-    t.string   "name",            limit: 20
     t.string   "email",           limit: 255
   end
 

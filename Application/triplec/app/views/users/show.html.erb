@@ -7,7 +7,7 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="users show">
-  <h2><%= @user.name %></h2>
+  <h2><%= @user.login %></h2>
   <tr>
       <!-- <th>Image</th> -->
       <!-- <div class="image_placeholder"> -->
@@ -16,8 +16,8 @@
     </tr>
   <table summary="User detail view">
     <tr>
-      <th>Name</th>
-      <td><%= @user.name %></td>
+      <th>ID</th>
+      <td><%= @user.id %></td>
     </tr>
     <tr>
       <th>Login ID</th>
@@ -45,7 +45,9 @@
     </tr>
     <tr>
       <th>School Id</th>
-      <td><%= @user.school_id %></td>
+      <td><%= link_to @user.school.name, :controller => "schools",
+                                    :action => "show",
+                                    :id => @user.school %></td>
     </tr>
   </table>
 

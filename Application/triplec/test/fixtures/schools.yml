@@ -4,8 +4,17 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+school1:
+  id: 1
+  name: Rajmala School
+  city: Gurgaon
+  country: India
+
+
 # column: value
 #
-two: {}
-#  column: value
+school2:
+  id: 2
+  name: Dandelion School
+  city: Beijing
+  country: China
